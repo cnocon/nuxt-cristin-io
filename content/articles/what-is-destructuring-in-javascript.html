@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Assignment</title>
+        <style>
+</style>
+        
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <hr>
+<h2 id="title-what-is-destructuring-in-javascriptsummary-there-are-several-ways-to-think-about-what-destructuring-is-one-is-in-terms-of-assignment-the-other-in-terms-of-parameters-both-perform-the-basic-function-of-getting-rid-of-repetitive-code-first-well-talk-about-assignment-then-parametersdate-2020-06-21t132800zimg-destructuringpngalt-jscategories-javascript-es6">title: What is Destructuring in JavaScript?<br>
+summary: There are several ways to think about what destructuring is. One is in terms of assignment, the other in terms of parameters. Both perform the basic function of getting rid of repetitive code. First we'll talk about assignment, then parameters.<br>
+date: 2020-06-21T13:28:00Z<br>
+img: destructuring.png<br>
+alt: JS<br>
+categories: [JavaScript, ES6]</h2>
+<p class="drop-cap">In a work meeting the other day, one of my colleagues asked a great question, "What is destructuring?"</p>
+<p>At the time I couldn't think of an eloquent answer, so I just stayed quiet and let someone else field the question. Their explanation was good, but probably too succinct for a real beginner.</p>
+<h2 id="assignment">Assignment</h2>
+<p>Wes Bos lays out a great explanation of how destructuring is used and how it is advantageous in terms of assignment.<sup>1</sup> The below examples are variants of his original examples, edited to be a little more clear.</p>
+<snippet lang="js">
+<template #code>
+const person = {
+  first: 'Wes',
+  last: 'Bos'
+};
+<br/>
+const first = person.first;
+const last = person.last;
+</template>
+</snippet>
+<p>It's dirtily repetitive to have to reference the person object each time you want to use one of its properties. With destructuring assignment, you can instead do something like this:</p>
+<snippet lang="js">
+<template #code>
+const person = {
+  first: 'Wes',
+  last: 'Bos'
+};
+<br />
+const { first, last } = person;
+<br />
+console.log(first); // Wes
+console.log(last); // Bos
+</template>
+</snippet>
+<p>Isn't that cool? What is a little confusing is that you're probably used to curly braces representing an object literal. Just remember, when they're on the left side of the equals sign, it's destructuring assignment, not an object literal.</p>
+<p>Note that you don't have to destructure every property in the object, just the ones you need. Say we only wanted to use <code>person.first</code>:</p>
+<snippet lang="js">
+<template #code>
+const person = {
+  first: 'Wes',
+  last: 'Bos'
+}
+const { first } = person;
+<br />
+console.log(first) // Wes
+</template>
+</snippet>
+<p>You can also do this with arrays. The syntax is identical, except you sub the curly braces for brackets, and you can use whatever variable names you want for the destructured items.<sup>2</sup></p>
+<snippet lang="js">
+<template #code>
+[a, b] = [10, 20];
+<br />
+console.log(a); // 10
+console.log(b); // 20
+</template>
+</snippet>
+<h2 id="destructuring-parameters">Destructuring Parameters</h2>
+<p>Destructuring parameters, in my opinion, is one of the best uses of destructuring. Just like you wrapped the items to the left of the equals sign in brackets or braces, you can wrap parameters that are arrays and objects respectively and access the destructured items.</p>
+<p>The below example deals with an object</p>
+<snippet lang="js">
+<template #code>
+const people = {
+  sister: {
+    name: "Cristin O'Connor",
+    age: 32
+  },
+  brother: {
+    name: "James O'Connor",
+    age: 29
+  }
+};
+<br />
+// Destructure the sister object
+const printName = ({ name }) => {
+  console.log(name);
+}
+<br />
+// Destructure the age object
+const printAge = ({ age }) => {
+  console.log(age);
+}
+<br />
+printName(people.sister); // "Cristin O'Connor
+printAge(people.brother); // 29
+</template>
+</snippet>
+<p>You can do the same with arrays:</p>
+<snippet lang="js">
+<template #code>
+const cities = ["Portland", "Los Angeles", "Detroit"];
+<br />
+const printFirstCity = ([first]) => {
+  document.querySelector('h1').innerHTML = first;
+}
+<br />
+printFirstCity(cities); // Portland
+</template>
+</snippet>
+<p>If you work at all in React, you'll probably see a ton of destructured parameters, so hopefully this post helps shed light on what's going on. Thanks for reading!</p>
+<h4 id="sources">Sources</h4>
+<ol>
+<li>Wes Bos. &quot;A Dead Simple Intro to Destructuring JavaScript Objects.&quot; Wes Bos.  <a href="https://wesbos.com/destructuring-objects">https://wesbos.com/destructuring-objects</a>. 06/21/2020.</li>
+<li>Actually, you can always use whatever variable names you want.</li>
+<li>Wes Bos. &quot;Destructure and Rename Variables.&quot; Wes Bos. <a href="https://wesbos.com/destructuring-renaming/">https://wesbos.com/destructuring-renaming/</a>. 06/21/2020.</li>
+</ol>
+
+    </body>
+    </html>

@@ -1,27 +1,15 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">nuxt-cristin-io</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <header>
+      <!-- <Logo /> -->
+      <img
+        :src="require(`~/assets/images/square-portrait.png`)"
+        alt="Cristin O'Connor"
+        class="header-image"
+      />
+      <h1 class="title">Cristin O'Connor</h1>
+      <p class="subtitle">Front End Software Engineer</p>
+    </header>
   </div>
 </template>
 
@@ -29,35 +17,28 @@
 export default {}
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style lang="scss">
+header {
   text-align: center;
 }
-
+.header-image {
+  display: none;
+  height: 100px;
+  width: 100px;
+  box-shadow: $rainbow-box-shadow-dark;
+  border-radius: 50%;
+}
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
+  font-weight: 900;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  display: inline-block;
+  font-style: italic;
+  font-family: $font-family-display;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  background-color: $highlight-yellow;
 }
 </style>

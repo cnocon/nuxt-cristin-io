@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Find Commit Messages Matching Your Search Term</title>
+        <style>
+</style>
+        
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <hr>
+<h2 id="title-search-git-history-for-certain-words-and-phrasessummary-finding-your-work-in-a-long-history-of-commits-can-be-difficult-these-commands-help-search-your-git-reflog-or-log-history-for-exactly-what-you-need-whether-your-search-terms-are-a-word-or-phrasedate-2020-05-26t223000zimg-gitpngalt-gitcategories-git-workflow">title: Search Git History for Certain Words and Phrases<br>
+summary: Finding your work in a long history of commits can be difficult. These commands help search your git reflog or log history for exactly what you need, whether your search term(s) are a word or phrase...<br>
+date: 2020-05-26T22:30:00Z<br>
+img: git.png<br>
+alt: git<br>
+categories: [Git, Workflow]</h2>
+<p class="drop-cap">When I started my first job at a company that used git for version control, I had never worked on projects of a scale that required more than a rudimentary knowledge of how to use git (I could add, commit, push, and pull, without really understanding what was happening the whole time). Years later, I use a nuanced and broad range of git commands regularly, even for personal projects.</p>
+<p>To date, my favorite command (spoiler: THE ONE I'M ABOUT TO TELL YOU ABOUT) helps search my history for given words or phrases.</p>
+<h2 id="find-commit-messages-matching-your-search-term">Find Commit Messages Matching Your Search Term</h2>
+<p>If you want to find all commits where the commit message contains a given word, you can take advantage of <code>grep</code>.</p>
+<p><code>git log --grep=SOME_WORD</code></p>
+<p>OR <code>reflog</code>:</p>
+<p><code>git reflog --grep-reflog=SOME_WORD</code></p>
+<p>For example, say I run <code>git log --grep=fix</code>.</p>
+<p>This should output what looks like a normal <code>git log</code> except that only commit messages with some semblance of the word &quot;style&quot; show up.</p>
+<p><post-image src="https://cdn.buttercms.com/d8pk6nCbRTmExisx09mn" alt="Git log"></post-image></p>
+<h2 id="searching-for-multiple-words-or-a-phrase">Searching for Multiple Words or a Phrase</h2>
+<p>If you want to search for multiple words or a phrase, you just have to use quotes:</p>
+<p><code>git log --grep='my phrase'</code></p>
+<p>Same with <code>--grep-reflog</code>:</p>
+<p><code>git reflog --grep-reflog='my phrase'</code></p>
+<p>I hope this was post was helpful! Thanks for taking the time read it!</p>
+
+    </body>
+    </html>
