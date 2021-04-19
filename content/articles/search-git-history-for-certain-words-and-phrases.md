@@ -4,7 +4,7 @@ summary: Finding your work in a long history of commits can be difficult. These 
 date: 2020-05-26T22:30:00Z
 img: git.png
 alt: git
-categories: [Git, Workflow]
+categories: [{name: Test, slug: test}, {name: Git, slug: git}, {name: Workflow, slug: workflow}]
 ---
 
 

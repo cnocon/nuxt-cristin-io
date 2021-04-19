@@ -4,7 +4,7 @@ summary: SASS essentially turns CSS into a programmatic language. Suddenly we ca
 date: 2020-06-10T00:48:00Z
 img: sass.png
 alt: SASS Logo
-categories: [Accessibility, SCSS]
+categories: [{name: Accessibility, slug: accessibility}, {name: SCSS, slug: scss}]
 ---
 
 
@@ -20,20 +20,19 @@ This means that `1rem` equals the font size of the `html` element (which for mos
 
 Enter SASS! We can create a function to generate the rem value for us.
 
-<snippet lang="scss">
-<template #code>
+```scss
 $base-font-size: 16px;
-<br />
+
 @function calculate-rem($size) {
   $rem-size: $size / $base-font-size;
+
   @return #{$rem-size}rem;
 }
-<br />
+
 h3 {
   font-size: calculate-rem(120px);
 }
-</template>
-</snippet>
+```
 
 In the above code snippet, we set our base font size in a variable for clarity. We also defined a function that takes whatever pixel size we pass it and returns that value in rems.
 

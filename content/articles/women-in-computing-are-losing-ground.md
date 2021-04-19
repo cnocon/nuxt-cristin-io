@@ -4,7 +4,7 @@ summary: The Women Tech Council recently hosted a virtual summit on the first fe
 date: 2021-04-18T15:29:00.272Z
 img: programmer.png
 alt: Programmer on a Laptop
-categories: [Inclusion and Diversity]
+categories: [{name: Test, slug: test}, {name: Inclusion and Diversity, slug: 'inclusion-and-diversity'}, {name: Industry, slug: industry}]
 ---
 
 

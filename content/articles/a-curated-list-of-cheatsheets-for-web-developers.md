@@ -4,7 +4,7 @@ summary: As a tribute to my young, homework-nerd self, I've compiled a list of s
 date: 2020-11-15T21:38:00Z
 img: person-on-laptop.png
 alt: Woman on a Laptop
-categories: [Reference, Docs]
+categories: [{name: Test, slug: test}, {name: Reference, slug: reference}, {name: Docs, slug: docs}]
 ---
 
 <p class="drop-cap">As a tribute to my young, homework-nerd self, I've compiled a list of some of the best cheat sheets I could find for web development purposes (although admittedly I favored the things I just happen to need sometimes). If we're being honest, there's simply too much to know by memory, so having a list like this could be handy.</p>

@@ -48,6 +48,7 @@ figure {
     max-width: 100%;
     border: 2px solid $border-light-gray;
     padding: 0.625rem;
+    border-radius: 0.25rem;
 
     @include media-breakpoint-down(sm) {
       min-width: 500px;

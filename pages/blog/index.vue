@@ -1,106 +1,73 @@
 <template>
   <div class="blog-index-page">
-    <h1 class="mb-5">Latest from the Blog</h1>
-    <div class="row">
-      <div v-for="post in posts" :key="post.slug" class="col-12 col-lg-6 mb-5">
-        <article class="shadow-sm">
-          <header>
-            <div class="post-image">
-              <img
-                :src="require(`~/assets/images/${post.img}`)"
-                :alt="post.alt"
-              />
-            </div>
+    <Breadcrumbs :crumbs="breadcrumbs" />
 
-            <nuxt-link :to="'blog/' + post.slug">{{ post.title }}</nuxt-link>
+    <h1 class="mb-5">Latest Posts</h1>
+    <PostList
+      :posts="pagePosts"
+      column-classes="col-12 col-lg-6 mb-5"
+    ></PostList>
 
-            <div class="meta">
-              <time :datetime="post.date">{{ formatDate(post.date) }}</time>
-              <span
-                v-for="cat in post.categories"
-                :key="cat"
-                class="badge badge-primary"
-              >
-                {{ cat }}
-              </span>
-            </div>
-          </header>
-          <section>
-            <p>{{ post.summary }}</p>
-          </section>
-        </article>
-      </div>
-    </div>
+    <prev-next
+      name="blog"
+      :prev="
+        page - 1 >= 1
+          ? {
+              params: { slug: 'blog' },
+              query: { page: page - 1 },
+            }
+          : null
+      "
+      :next="
+        page + 1 <= Math.ceil(postsCount / limit)
+          ? {
+              params: { slug: 'blog' },
+              query: { page: page + 1 },
+            }
+          : null
+      "
+    ></prev-next>
   </div>
 </template>
 
 <script>
+import PostList from '@/components/PostList'
+import Breadcrumbs from '@/components/Breadcrumbs'
+
 export default {
-  async asyncData({ $content, params }) {
-    const posts = await $content('articles').fetch()
-    posts.sort((a, b) => {
-      const aTime = new Date(a.date).getTime()
-      const bTime = new Date(b.date).getTime()
-
-      return aTime < bTime ? 1 : -1
-    })
-
-    return { posts }
+  components: {
+    PostList,
+    Breadcrumbs,
   },
-  methods: {
-    formatDate(date) {
-      const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }
-      return new Date(date).toLocaleDateString('en', options)
-    },
+  async asyncData({ $content, query }) {
+    const page = query.page || 1
+    const limit = 4
+    const posts = await $content('articles').sortBy('date', 'desc').fetch()
+    const postsCount = posts.length
+
+    const breadcrumbs = [
+      {
+        text: 'Recent Posts',
+        href: '/blog?page=1',
+      },
+      {
+        text: `Page ${page}`,
+        href: null,
+      },
+    ]
+
+    const pagePosts = posts.slice(limit * (page - 1), page * limit)
+
+    return {
+      page,
+      postsCount,
+      pagePosts,
+      limit,
+      breadcrumbs,
+    }
   },
+  watchQuery: ['page'],
 }
 </script>
 
-<style lang="scss" scoped>
-header {
-  margin-bottom: 1.5rem;
-  text-align: center;
-
-  a {
-    font-size: 1.5rem;
-    font-family: $font-family-heading;
-    font-weight: 300;
-  }
-
-  .post-image {
-    max-width: 3.75rem;
-    margin: 0 auto 1rem;
-  }
-
-  img {
-    display: inline-block;
-    max-width: 3.75rem;
-    flex-basis: 3.75rem;
-    margin-right: 1.25rem;
-  }
-
-  time {
-    display: block;
-    font-weight: 400;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    font-family: $font-family-display;
-  }
-}
-.badge:not(:last-of-type) {
-  margin-right: 0.4em;
-}
-article {
-  padding: 2rem 2rem 1.5rem;
-  height: 100%;
-
-  @include media-breakpoint-down(sm) {
-    padding: 1.25rem 1.25rem 0.5rem;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

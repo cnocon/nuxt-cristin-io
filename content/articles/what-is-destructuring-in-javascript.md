@@ -4,7 +4,7 @@ summary: There are several ways to think about what destructuring is. One is in 
 date: 2020-06-21T13:28:00Z
 img: destructuring.png
 alt: JS
-categories: [JavaScript, ES6]
+categories: [{name: Test, slug: test}, {name: JavaScript, slug: 'javascript'}, {name: ES6, slug: 'es6'}]
 ---
 
 
@@ -16,60 +16,52 @@ At the time I couldn't think of an eloquent answer, so I just stayed quiet and l
 
 Wes Bos lays out a great explanation of how destructuring is used and how it is advantageous in terms of assignment.<sup>1</sup> The below examples are variants of his original examples, edited to be a little more clear.
 
-<snippet lang="js">
-<template #code>
+```js
 const person = {
   first: 'Wes',
   last: 'Bos'
 };
-<br/>
+
 const first = person.first;
 const last = person.last;
-</template>
-</snippet>
+```
 
 It's dirtily repetitive to have to reference the person object each time you want to use one of its properties. With destructuring assignment, you can instead do something like this:
 
-<snippet lang="js">
-<template #code>
+```js
 const person = {
   first: 'Wes',
   last: 'Bos'
 };
-<br />
+
 const { first, last } = person;
-<br />
+
 console.log(first); // Wes
 console.log(last); // Bos
-</template>
-</snippet>
+```
 
 Isn't that cool? What is a little confusing is that you're probably used to curly braces representing an object literal. Just remember, when they're on the left side of the equals sign, it's destructuring assignment, not an object literal.
 
 Note that you don't have to destructure every property in the object, just the ones you need. Say we only wanted to use <code>person.first</code>:
 
-<snippet lang="js">
-<template #code>
+```js
 const person = {
   first: 'Wes',
   last: 'Bos'
 }
 const { first } = person;
-<br />
+
 console.log(first) // Wes
-</template>
-</snippet>
+```
 
 You can also do this with arrays. The syntax is identical, except you sub the curly braces for brackets, and you can use whatever variable names you want for the destructured items.<sup>2</sup>
 
-<snippet lang="js">
-<template #code>
+```js
 [a, b] = [10, 20];
-<br />
+
 console.log(a); // 10
 console.log(b); // 20
-</template>
-</snippet>
+```
 
 ## Destructuring Parameters
 
@@ -77,8 +69,7 @@ Destructuring parameters, in my opinion, is one of the best uses of destructurin
 
 The below example deals with an object
 
-<snippet lang="js">
-<template #code>
+```js
 const people = {
   sister: {
     name: "Cristin O'Connor",
@@ -89,35 +80,32 @@ const people = {
     age: 29
   }
 };
-<br />
+
 // Destructure the sister object
 const printName = ({ name }) => {
   console.log(name);
 }
-<br />
+
 // Destructure the age object
 const printAge = ({ age }) => {
   console.log(age);
 }
-<br />
+
 printName(people.sister); // "Cristin O'Connor
 printAge(people.brother); // 29
-</template>
-</snippet>
+```
 
 You can do the same with arrays:
 
-<snippet lang="js">
-<template #code>
+```js
 const cities = ["Portland", "Los Angeles", "Detroit"];
-<br />
+
 const printFirstCity = ([first]) => {
   document.querySelector('h1').innerHTML = first;
 }
-<br />
+
 printFirstCity(cities); // Portland
-</template>
-</snippet>
+```
 
 If you work at all in React, you'll probably see a ton of destructured parameters, so hopefully this post helps shed light on what's going on. Thanks for reading!
 

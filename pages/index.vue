@@ -10,11 +10,20 @@
       <h1 class="title">Cristin O'Connor</h1>
       <p class="subtitle">Front End Software Engineer</p>
     </header>
+    <main>
+      <RotatingHeader />
+    </main>
   </div>
 </template>
 
 <script>
-export default {}
+import RotatingHeader from '@/components/RotatingHeader'
+
+export default {
+  components: {
+    RotatingHeader,
+  },
+}
 </script>
 
 <style lang="scss">
@@ -29,16 +38,20 @@ header {
   border-radius: 50%;
 }
 .title {
-  font-weight: 900;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family: $font-family-display;
+  margin-bottom: 0.5rem;
 }
 .subtitle {
   display: inline-block;
   font-style: italic;
   font-family: $font-family-display;
-  border-radius: 4px;
-  letter-spacing: 1px;
+  border-radius: 0.25rem;
+  // letter-spacing: 1px;
   background-color: $highlight-yellow;
+  font-size: 1.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 </style>

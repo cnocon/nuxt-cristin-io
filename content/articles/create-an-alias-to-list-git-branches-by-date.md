@@ -4,7 +4,7 @@ summary: It is possible to list your local git branches ordered by most recent c
 date: 2020-05-27T02:09:00Z
 img: clean-history.png
 alt: git
-categories: [Git, Workflow]
+categories: [{name: Test, slug: test}, {name: Git, slug: git}, {name: Workflow, slug: workflow}]
 ---
 
 

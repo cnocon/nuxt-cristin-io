@@ -6,6 +6,9 @@
         alt="Cristin O'Connor"
         class="logo-img"
       />
+      <b-link :active="isActive('home')" to="/" class="brand-link"
+        >Welcome</b-link
+      >
     </b-navbar-brand>
     <b-navbar-nav class="ml-auto">
       <b-nav pills>
@@ -77,6 +80,17 @@ export default {
 }
 
 .navbar-brand {
+  .brand-link {
+    font-weight: 400;
+    font-family: $font-family-display;
+    color: transparent;
+    // background-image: $pastel-rainbow-bar;
+    // background-image: $rainbow-gradient-radial;
+    background-image: $rainbow-text;
+    background-clip: text;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+  }
   // span {
   //   line-height: 45px;
   //   font-weight: 600;
@@ -89,8 +103,8 @@ export default {
   // }
 
   .logo-img {
-    height: 50px;
-    width: 50px;
+    height: 58px;
+    width: 58px;
     border-radius: 50%;
     background-color: $lightest-gray;
     box-shadow: $rainbow-box-shadow-dark;
@@ -137,7 +151,7 @@ export default {
   .nav-item {
     &:last-of-type .nav-link {
       @include media-breakpoint-up(md) {
-        padding-right: 0;
+        // margin-right: -1rem;
       }
     }
   }
@@ -146,7 +160,7 @@ export default {
     color: $white;
     font-family: $font-family-heading;
     font-weight: 600;
-    font-size: 0.875rem;
+    // font-size: 0.875rem;
 
     &:hover {
       text-decoration: underline;

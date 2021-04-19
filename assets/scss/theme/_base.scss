@@ -9,6 +9,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 *,
@@ -25,37 +26,9 @@ body {
   font-family: $font-family-base;
 }
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.navbar-container {
-  width: 100%;
-  background-color: $primary;
-  // background-image: $pastel-rainbow-bar;
-  // background-size: 100% 2px;
-  // background-position: center bottom;
-  // background-repeat: no-repeat;
-}
-
-.content-container {
-  min-height: calc(100vh - 150px - 75px - 64px); // height - footerheight - headerheight - header bottom margin
-}
-
-.footer-container {
-  background-image: $pastel-rainbow-bar;
-  background-size: 100% 2px;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-color: $lightest-gray;
-  justify-self: flex-end;
-  margin-top: auto;
-}
-
 h1 {
-  font-family: $font-family-display;
+  font-family: $font-family-heading;
+  font-weight: 900;
 
   @include media-breakpoint-down(sm) {
     text-align: center;
@@ -122,6 +95,20 @@ p {
 
 a {
   line-height: 1.618em;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.badge {
+    border-bottom: 0;
+  }
+
+  &.btn-outline-primary {
+    &:hover {
+      border-bottom: 1px solid $primary;
+    }
+  }
 }
 
 .badge {

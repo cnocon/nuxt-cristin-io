@@ -1,63 +1,93 @@
 <template>
-  <article>
-    <header>
-      <h1 class="mb-2">{{ article.title }}</h1>
-      <div class="meta text-center mb-2">
-        <time :datetime="article.date">{{ formatDate(article.date) }}</time>
-        <span
-          v-for="cat in article.categories"
-          :key="cat"
-          class="badge badge-primary"
-        >
-          {{ cat }}
-        </span>
-      </div>
-    </header>
-    <div v-if="article.toc.length > 0" class="row toc-row mb-5">
-      <div class="col-12 col-md-9 toc-col">
-        <h6 class="font-weight-bolder text-uppercase">Table of Contents</h6>
-        <ul class="toc">
-          <li
-            v-for="item in article.toc"
-            :key="item.id"
-            :class="{
-              'depth-3': item.depth === 3,
+  <div>
+    <article>
+      <header>
+        <h1 class="mb-2">{{ post.title }}</h1>
+        <div class="meta text-center mb-2">
+          <time :datetime="post.date">{{ formatDate(post.date) }}</time>
+          <nuxt-link
+            v-for="(cat, index) in post.categories"
+            :key="cat + '-' + index"
+            :to="{
+              name: 'blog-categories-slug',
+              params: { slug: cat.slug },
+              query: { page: 1 },
             }"
+            class="badge badge-secondary"
           >
-            <NuxtLink :to="`#${item.id}`">{{ item.text }}</NuxtLink>
-          </li>
-        </ul>
-      </div>
-      <div class="col-12 col-md-3 toc-image-col">
-        <div class="toc-image">
-          <img
-            :src="require(`~/assets/images/${article.img}`)"
-            :alt="article.alt"
-          />
+            {{ cat.name }}
+          </nuxt-link>
+        </div>
+      </header>
+      <div v-if="post.toc.length > 0" class="row toc-row mb-5">
+        <div class="col-12 col-md-9 toc-col">
+          <h6 class="font-weight-bolder text-uppercase">Table of Contents</h6>
+          <ul class="toc">
+            <li
+              v-for="item in post.toc"
+              :key="item.id"
+              :class="{
+                'depth-3': item.depth === 3,
+              }"
+            >
+              <NuxtLink :to="`#${item.id}`">{{ item.text }}</NuxtLink>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3 toc-image-col">
+          <div class="toc-image">
+            <img
+              :src="require(`~/assets/images/${post.img}`)"
+              :alt="post.alt"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <div v-else class="row toc-image-row mb-4">
-      <div class="toc-col col-md-3 mx-auto mt-2 mb-2">
-        <div class="toc-image">
-          <img
-            :src="require(`~/assets/images/${article.img}`)"
-            :alt="article.alt"
-          />
+      <div v-else class="row toc-image-row mb-4">
+        <div class="toc-col col-md-3 mx-auto mt-2 mb-2">
+          <div class="toc-image">
+            <img
+              :src="require(`~/assets/images/${post.img}`)"
+              :alt="post.alt"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <nuxt-content :document="article" />
-  </article>
+      <nuxt-content :document="post" />
+      <prev-next
+        name="blog-slug"
+        :prev="
+          prev
+            ? { params: { slug: prev.slug }, query: null, title: prev.title }
+            : null
+        "
+        :next="
+          next
+            ? { params: { slug: next.slug }, query: null, title: next.title }
+            : null
+        "
+      ></prev-next>
+    </article>
+  </div>
 </template>
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, params, query }) {
     // fetch our article here
-    const article = await $content('articles', params.slug).fetch()
+    const post = await $content('articles', params.slug).fetch()
 
-    return { article }
+    const [prev, next] = await $content('articles')
+      .only(['title', 'slug'])
+      .sortBy('date', 'desc')
+      .surround(params.slug)
+      .fetch()
+
+    return {
+      post,
+      prev,
+      next,
+    }
   },
   methods: {
     formatDate(date) {
@@ -74,11 +104,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// article {
-//   max-width: 900px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
 header {
   text-align: center;
 
