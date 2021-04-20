@@ -4,7 +4,7 @@ summary: This post demonstrates how you can cleanup your commit history on a loc
 date: 2020-07-19T17:42:00Z
 img: git.png
 alt: Git
-categories: [{name: Test, slug: test}, {name: Git, slug: git}, {name: Workflow, slug: workflow}]
+categories: [{name: Git, slug: git}, {name: Workflow, slug: workflow}]
 ---
 
 

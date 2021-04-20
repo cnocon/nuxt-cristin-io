@@ -13,7 +13,7 @@
               params: { slug: cat.slug },
               query: { page: 1 },
             }"
-            class="badge badge-secondary"
+            class="badge badge-dark"
           >
             {{ cat.name }}
           </nuxt-link>

@@ -5,9 +5,12 @@
         <img :src="require(`~/assets/images/${post.img}`)" :alt="post.alt" />
       </div>
 
-      <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.slug } }">{{
-        post.title
-      }}</nuxt-link>
+      <nuxt-link
+        :to="{ name: 'blog-slug', params: { slug: post.slug } }"
+        class="text-primary"
+      >
+        {{ post.title }}</nuxt-link
+      >
 
       <div class="meta">
         <time :datetime="post.date">{{ formatDate(post.date) }}</time>
@@ -19,7 +22,7 @@
             params: { slug: cat.slug },
             query: { page: 1 },
           }"
-          class="badge badge-secondary"
+          class="badge badge-light mx-1 px-2 py-1 rounded-sm rainbow-border text-primary"
         >
           {{ cat.name }}
         </nuxt-link>
@@ -55,12 +58,12 @@ export default {
 
 <style lang="scss" scoped>
 article {
-  background-color: $lightest-gray;
+  // background-color: $lightest-gray;
   padding: 2rem 2rem 1.5rem;
   height: 100%;
   background-image: $pastel-rainbow-bar;
   background-size: 100% 4px;
-  background-position: center top;
+  background-position: center bottom;
   background-repeat: no-repeat;
 
   @include media-breakpoint-down(sm) {
@@ -75,6 +78,7 @@ header {
     font-size: 1.5rem;
     font-family: $font-family-display;
     font-weight: 700;
+    border-bottom: 0;
   }
 
   .post-image {

@@ -4,7 +4,7 @@ date: 2020-09-09T13:58:00Z
 summary: To make the most (or anything at all) of the beautiful gift of confusion, you must be able to step back a bit and transform your doubts into productive thoughts. Instead of letting panic and self-doubt creep in, instead, try thinking, "Hm, this is new. I want to understand it." You'll likely feel calmer and be able to think clearly,  which means you can start learning rather than beating up on yourself to no end.
 img: mental-health.png
 alt: Heart and Mind
-categories: [{name: Test, slug: test}, {name: Soft Skills, slug: soft-skills}, {name: Personal Growth, slug: personal-growth}]
+categories: [{name: Soft Skills, slug: soft-skills}, {name: Personal Growth, slug: personal-growth}]
 ---
 
 <p class="drop-cap">It's been over two months since my last instructional blog post. Two or three times I started writing about something, and then halfway through started doubting myself. Is what I'm writing going to be helpful? Wait, is this clear enough? Are my explanations even correct?</p>

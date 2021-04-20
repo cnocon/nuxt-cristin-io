@@ -74,7 +74,7 @@ export default {
   line-height: 1.5em;
   font-family: $font-family-heading;
   text-transform: none;
-  color: $primary;
+  color: $dark;
   font-weight: 300;
   margin-bottom: 0;
   text-align: center;
@@ -95,19 +95,20 @@ export default {
   }
 
   .rotate-words {
-    font-size: inherit;
-    min-height: 22px;
     line-height: 34px;
     display: inline-block;
-    min-width: 290px;
+    min-width: 280px;
     text-align: left;
+
+    @include media-breakpoint-down(sm) {
+      min-width: 215px;
+      line-height: 22px;
+    }
 
     span {
       font-size: inherit;
-      line-height: 1.4;
       display: inline-block;
       position: absolute;
-      font-family: $font-family-heading;
       font-weight: 300;
       margin: auto;
       opacity: 1;
@@ -115,6 +116,7 @@ export default {
       &.active {
         opacity: 1;
         animation: 1s appear;
+        font-weight: 600;
       }
 
       &.fading {

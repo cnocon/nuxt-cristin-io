@@ -6,22 +6,31 @@
         alt="Cristin O'Connor"
         class="logo-img"
       />
-      <b-link :active="isActive('home')" to="/" class="brand-link"
-        >Welcome</b-link
-      >
+      <b-link :active="isActive('home')" to="/" class="brand-link">
+        <span class="sans-serif">.</span>io
+        <!-- <font-awesome-icon
+          :icon="['f  as', 'home-lg-alt']"
+          class="text-success"
+        ></font-awesome-icon> -->
+      </b-link>
     </b-navbar-brand>
     <b-navbar-nav class="ml-auto">
       <b-nav pills>
-        <b-nav-item :active="isActive('resume')" to="/resume"
-          >Résumé</b-nav-item
+        <b-nav-item :active="isActive('resume')" to="/resume">
+          Résumé
+        </b-nav-item>
+        <b-nav-item :active="isActive('portfolio')" to="/portfolio">
+          Portfolio
+        </b-nav-item>
+        <b-nav-item
+          :active="isActive('blog')"
+          :to="{ name: 'blog', query: { page: 1 } }"
         >
-        <b-nav-item :active="isActive('portfolio')" to="/portfolio"
-          >Portfolio</b-nav-item
-        >
-        <b-nav-item :active="isActive('blog')" to="/blog">Blog</b-nav-item>
-        <b-nav-item :active="isActive('contact')" to="/contact"
-          >Contact</b-nav-item
-        >
+          Blog
+        </b-nav-item>
+        <b-nav-item :active="isActive('contact')" to="/contact">
+          Contact
+        </b-nav-item>
 
         <b-nav-item-dropdown
           id="my-nav-dropdown"
@@ -52,6 +61,10 @@
 
 <script>
 import { BIconList } from 'bootstrap-vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHomeLgAlt } from '@fortawesome/pro-solid-svg-icons'
+
+library.add(faHomeLgAlt)
 
 export default {
   components: {
@@ -78,104 +91,95 @@ export default {
     width: 100%;
   }
 }
-
 .navbar-brand {
-  .brand-link {
-    font-weight: 400;
-    font-family: $font-family-display;
-    color: transparent;
-    // background-image: $pastel-rainbow-bar;
-    // background-image: $rainbow-gradient-radial;
-    background-image: $rainbow-text;
-    background-clip: text;
-    text-transform: uppercase;
-    font-size: 1.125rem;
+  .sans-serif {
+    font-family: $font-family-heading;
+    line-height: 60px;
+    vertical-align: bottom;
   }
-  // span {
-  //   line-height: 45px;
-  //   font-weight: 600;
-  //   text-transform: uppercase;
-  //   font-family: $font-family-display;
-
-  //   @include media-breakpoint-down(sm) {
-  //     display: none;
-  //   }
-  // }
-
+  .brand-link {
+    font-weight: 600;
+    // font-size: 0.875rem;
+    font-family: $font-family-heading;
+    color: transparent;
+    background-image: $rainbow-ellipse-bottom-right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    margin-left: -0.625rem;
+    font-family: 'Source Code Pro';
+    font-size: 52px;
+    line-height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 400;
+    letter-spacing: -1px;
+    text-indent: 1px;
+  }
   .logo-img {
-    height: 58px;
-    width: 58px;
+    height: 42px;
+    width: 42px;
     border-radius: 50%;
-    background-color: $lightest-gray;
-    box-shadow: $rainbow-box-shadow-dark;
+    background-color: darken($color-primary-med, 7.5%);
+    box-shadow: hsl(175, 80%, 80%) 0 1.5px, hsl(58, 100%, 80%) -1.5px 0,
+      hsl(240, 80%, 82%) 1.5px 0, hsl(355, 80%, 85%) 0 -1.5px 0;
     margin-right: 0.5rem;
     display: inline-block;
   }
 }
-
 .nav-item:not(#my-nav-dropdown) {
   @include media-breakpoint-down(sm) {
     display: none !important;
   }
 }
-
 #my-nav-dropdown {
   @include media-breakpoint-up(md) {
     display: none;
   }
 }
-
 .navbar-nav {
   @include media-breakpoint-up(md) {
     min-width: 250px;
   }
-
   .dropdown-toggle {
     margin-right: -1rem;
     font-size: 150%;
     padding: 0.125rem 0.5rem !important;
-
     &::after {
       display: none;
     }
   }
-
   .dropdown-menu.show {
     left: 0.25rem;
   }
 }
-
 .nav {
   justify-content: space-between;
-
   .nav-item {
     &:last-of-type .nav-link {
       @include media-breakpoint-up(md) {
-        // margin-right: -1rem;
+        padding-right: 0;
       }
     }
   }
-
   .nav-link {
     color: $white;
     font-family: $font-family-heading;
     font-weight: 600;
-    // font-size: 0.875rem;
-
+    font-size: 0.875rem;
     &:hover {
       text-decoration: underline;
     }
-
     &.active {
       background-color: $lightest-gray !important;
       color: $primary !important;
     }
-
     &.dropdown-toggle {
       font-size: 150%;
     }
   }
-
   .nav-link {
     @include media-breakpoint-up(md) {
       padding-left: 1rem !important;

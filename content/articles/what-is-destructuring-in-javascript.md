@@ -4,7 +4,7 @@ summary: There are several ways to think about what destructuring is. One is in 
 date: 2020-06-21T13:28:00Z
 img: destructuring.png
 alt: JS
-categories: [{name: Test, slug: test}, {name: JavaScript, slug: 'javascript'}, {name: ES6, slug: 'es6'}]
+categories: [{name: JavaScript, slug: 'javascript'}, {name: ES6, slug: 'es6'}]
 ---
 
 

@@ -46,6 +46,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    'nuxt-fontawesome',
   ],
 
   googleFonts: {
@@ -53,6 +54,7 @@ export default {
       Oswald: [300, 400, 500, 600, 700],
       Lato: [300, 400, 700, 900],
       'Open+Sans': [300, 400, 500, 600, 700, 800, 900],
+      'Source+Code+Pro': [200, 300, 400, 500, 600, 700, 900],
     },
   },
 

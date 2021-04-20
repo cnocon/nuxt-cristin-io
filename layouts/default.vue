@@ -1,4 +1,5 @@
 <template>
+  <!-- prettier-ignore -->
   <div class="app-container mb-0">
     <div class="navbar-container mb-3">
       <Navbar />
@@ -12,13 +13,18 @@
   </div>
 </template>
 <script>
+/* eslint-disable prettier/prettier */
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+// import { dom } from '@fortawesome/fontawesome-svg-core'
 
 export default {
   components: {
     Navbar,
     Footer,
+  },
+  mounted() {
+    // dom.watch()
   },
 }
 </script>
@@ -42,30 +48,8 @@ export default {
 }
 .navbar-container {
   width: 100%;
-  background-color: $primary;
+  background-color: $dark;
   padding: 0.3125rem 0;
-
-  // &::after {
-  //   content: '';
-  //   display: block;
-  //   height: 6px;
-  //   width: 100%;
-  //   background-image: $pastel-rainbow-bar;
-  //   background-size: cover;
-  //   background-position: center bottom;
-  //   background-repeat: no-repeat;
-  // }
-
-  // &::after {
-  //   content: '';
-  //   display: block;
-  //   height: 4px;
-  //   width: 100%;
-  //   background-image: $rainbow-gradient-light;
-  //   background-size: cover;
-  //   background-position: center bottom;
-  //   background-repeat: no-repeat;
-  // }
 }
 
 .footer-container {
@@ -77,22 +61,37 @@ export default {
   justify-self: flex-end;
   margin-top: auto;
 
-  &::after {
-    content: '';
-    display: block;
-    height: 0.5rem;
-    width: 100%;
-    background-image: $rainbow-gradient-light;
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-  }
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   height: 0.5rem;
+  //   width: 100%;
+  //   background-image: $rainbow-gradient-light;
+  //   background-size: cover;
+  //   background-position: center bottom;
+  //   background-repeat: no-repeat;
+  // }
 }
 
 .content-container {
   // height - footerheight - headerheight - header bottom margin
   min-height: calc(100vh - 150px - 75px - 64px);
 }
+
+.rainbow-ellipse {
+  background-image: $rainbow-ellipse-bottom-left;
+  background-size: cover;
+}
+
+.rainbow-border {
+  background-image: $rainbow-gradient-light;
+  background-size: 100% 2px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
 [target='_blank']::after {
   content: '';
   display: block;

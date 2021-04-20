@@ -77,9 +77,9 @@ footer {
     }
   }
   a {
-    color: $primary;
+    color: $dark;
     font-weight: 500;
-    border-bottom: 1px solid $primary;
+    border-bottom: 1px solid $dark;
     text-decoration: none;
     background-image: none;
 
