@@ -44,8 +44,18 @@ export default {
     &:hover {
       border-bottom: 0;
     }
+
+    &.plain {
+      text-decoration: none !important;
+      border-bottom: 0 !important;
+
+      &::after {
+        display: none !important;
+      }
+    }
   }
 }
+
 .navbar-container {
   width: 100%;
   background-color: $dark;
@@ -57,7 +67,7 @@ export default {
   // background-size: 100% 4px;
   // background-position: center top;
   // background-repeat: no-repeat;
-  background-color: $light-gray;
+  background-color: $lightest-gray;
   justify-self: flex-end;
   margin-top: auto;
 

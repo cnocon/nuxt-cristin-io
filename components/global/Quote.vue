@@ -1,11 +1,22 @@
 <template>
-  <div class="quote">
+  <div :class="'quote ' + classes">
     <blockquote>
       <p><slot name="quote"></slot></p>
       <cite><slot name="cite"></slot></cite>
     </blockquote>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    classes: {
+      type: String,
+      default: '',
+    },
+  },
+}
+</script>
 
 <style lang="scss">
 .quote {
@@ -40,6 +51,16 @@
       width: 100%;
       text-align: right;
       margin-top: 1.25rem;
+    }
+  }
+
+  &.subtle {
+    blockquote {
+      p {
+        font-family: $font-family-sans-serif;
+        font-weight: 500;
+        font-size: 1.25rem;
+      }
     }
   }
 }

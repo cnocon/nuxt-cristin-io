@@ -5,7 +5,11 @@ $warning: hsl(48, 100%, 55%);
 $danger: hsl(355, 92%, 30%);
 $info: hsl(253, 98%, 62%);
 $light: hsl(200, 14%, 92%);
+$lightest: hsl(200, 16%, 96%);
 $dark: hsl(210, 30%, 17%);
+.bg-lightest {background-color: $lightest;}
+.bg-dark {background-color: $dark;}
+
 
 // hsla(253, 95%, 75%, 1.0)
 
@@ -93,6 +97,7 @@ $rainbow-box-shadow-dark: hsl(175, 80%, 60%) 0 2px,
   hsl(58, 100%, 60%) -2px 0,
   hsl(240, 80%, 69%) 2px 0,
   hsl(355, 80%, 72.5%) 0 -2px 0;
+.rainbow-border {box-shadow: $rainbow-box-shadow-dark;}
 // $rainbow-box-shadow-dark-lg: hsl(175, 80%, 60%) 0 3px,
 //   hsl(58, 100%, 60%) -3px 0,
 //   hsl(240, 80%, 69%) 3px 0,
@@ -157,6 +162,15 @@ $rainbow-ellipse-top-right: radial-gradient(
   hsl(175, 100%, 85%) 55%,
   hsl(197, 100%, 85%) 65%,
   hsl(240, 100%, 90%) 75%
+);
+$rainbow-ellipse-top-right-dark: radial-gradient(
+  ellipse at top right,
+  hsl(355, 100%, 75%) 0%,
+  hsl(58, 100%, 70%) 30%,
+  hsl(175, 100%, 65%) 45%,
+  hsl(175, 100%, 55%) 55%,
+  hsl(197, 100%, 65%) 65%,
+  hsl(240, 100%, 87.5%) 75%
 );
 $rainbow-ellipse-top-left: radial-gradient(
   ellipse at top left,

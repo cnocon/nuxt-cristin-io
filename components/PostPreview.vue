@@ -22,7 +22,7 @@
             params: { slug: cat.slug },
             query: { page: 1 },
           }"
-          class="badge badge-light mx-1 px-2 py-1 rounded-sm rainbow-border text-primary"
+          class="badge badge-primary text-white mx-1 px-2 py-1 my-1"
         >
           {{ cat.name }}
         </nuxt-link>
