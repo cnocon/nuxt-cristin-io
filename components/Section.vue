@@ -1,25 +1,36 @@
 <template>
-  <section>
-    <section-header :text="headerText" :alignment="headerAlignment">
+  <section :class="sectionClasses">
+    <SectionHeader
+      :text="headerText"
+      :alignment="headerAlignment"
+      :header-classes="headerClasses"
+    >
       <template #section-header-icon>
         <font-awesome-icon
           :icon="[headerIconType, headerIcon]"
         ></font-awesome-icon>
       </template>
-    </section-header>
+    </SectionHeader>
     <slot></slot>
   </section>
 </template>
 <script>
+import SectionHeader from '@/components/SectionHeader'
+
 export default {
+  components: {
+    SectionHeader,
+  },
   props: {
+    sectionClasses: {
+      default: '',
+      type: String,
+    },
     headerIcon: {
-      // eslint-disable-next-line vue/require-valid-default-prop
       default: '',
       type: String,
     },
     headerIconType: {
-      // eslint-disable-next-line vue/require-valid-default-prop
       default: 'fas',
       type: String,
     },
@@ -29,6 +40,10 @@ export default {
     },
     headerAlignment: {
       default: 'left',
+      type: String,
+    },
+    headerClasses: {
+      default: 'mb-5',
       type: String,
     },
   },

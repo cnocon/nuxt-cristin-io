@@ -2,13 +2,13 @@
   <div class="blog-index-page">
     <Breadcrumbs :crumbs="breadcrumbs" />
 
-    <h1 class="mb-5">Latest Posts</h1>
+    <h1 class="mb-5">LATEST POSTS</h1>
     <PostList
       :posts="pagePosts"
       column-classes="col-12 col-lg-6 mb-5"
     ></PostList>
 
-    <prev-next
+    <PrevNext
       name="blog"
       :prev="
         page - 1 >= 1
@@ -26,28 +26,35 @@
             }
           : null
       "
-    ></prev-next>
+    ></PrevNext>
   </div>
 </template>
 
 <script>
 import PostList from '@/components/PostList'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import PrevNext from '@/components/PrevNext'
 
 export default {
   components: {
+    PrevNext,
     PostList,
     Breadcrumbs,
   },
   async asyncData({ $content, query }) {
-    const page = query.page || 1
+    // eslint-disable-next-line prettier/prettier
+    const page = parseInt(query.page) || 1
     const limit = 4
     const posts = await $content('articles').sortBy('date', 'desc').fetch()
     const postsCount = posts.length
 
     const breadcrumbs = [
       {
-        text: 'Recent Posts',
+        text: 'Home',
+        href: '/',
+      },
+      {
+        text: 'Blog',
         href: '/blog?page=1',
       },
       {

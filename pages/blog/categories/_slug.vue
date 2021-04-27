@@ -6,7 +6,7 @@
         <PostPreview :post="post" />
       </div>
     </div>
-    <prev-next
+    <PrevNext
       name="blog-categories-slug"
       :prev="
         page - 1 >= 1
@@ -24,15 +24,17 @@
             }
           : null
       "
-    ></prev-next>
+    ></PrevNext>
   </div>
 </template>
 
 <script>
 import PostPreview from '@/components/PostPreview'
+import PrevNext from '@/components/PrevNext'
 
 export default {
   components: {
+    PrevNext,
     PostPreview,
   },
   async asyncData({ $content, params, query }) {

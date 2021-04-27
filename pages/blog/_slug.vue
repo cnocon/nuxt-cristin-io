@@ -54,7 +54,7 @@
         </div>
       </div>
       <nuxt-content :document="post" />
-      <prev-next
+      <PrevNext
         name="blog-slug"
         :prev="
           prev
@@ -66,13 +66,18 @@
             ? { params: { slug: next.slug }, query: null, title: next.title }
             : null
         "
-      ></prev-next>
+      ></PrevNext>
     </article>
   </div>
 </template>
 
 <script>
+import PrevNext from '@/components/PrevNext'
+
 export default {
+  components: {
+    PrevNext,
+  },
   async asyncData({ $content, params, query }) {
     // fetch our article here
     const post = await $content('articles', params.slug).fetch()

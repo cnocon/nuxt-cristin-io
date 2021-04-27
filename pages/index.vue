@@ -15,12 +15,13 @@
         header-icon="user-astronaut"
         header-text="A Little About Me"
         header-alignment="left"
+        header-classes="mb-3"
       >
         <RotatingHeader />
       </Section>
 
       <Section
-        hader-icon-type="fas"
+        header-icon-type="fal"
         header-icon="concierge-bell"
         header-text="Services"
         header-alignment="left"
@@ -31,13 +32,13 @@
               <font-awesome-icon
                 :icon="['fal', 'code']"
                 size="2x"
-                :style="iconStyle"
               ></font-awesome-icon>
             </div>
             <h4>WEB DEVELOPMENT</h4>
             <p>
               This is my primary area of expertise after 10+ years in the field.
-              <a href="mailto:her@cristin.io">Contact me</a> about development.
+              <a href="mailto:her@cristin.io">Contact me</a> about web
+              development.
             </p>
           </div>
           <div class="col-sm-6 col-lg-3 text-center mb-5">
@@ -45,13 +46,13 @@
               <font-awesome-icon
                 :icon="['fal', 'graduation-cap']"
                 size="2x"
-                :style="iconStyle"
               ></font-awesome-icon>
             </div>
             <h4>CODE TUTORING</h4>
             <p>
               I focus on teaching with compassion and work with all ages.
-              <a href="mailto:her@cristin.io">Contact me</a> about tutoring.
+              <a href="mailto:her@cristin.io">Contact me</a> about mentoring or
+              code tutoring.
             </p>
           </div>
           <div class="col-sm-12 col-lg-6 mb-5">
@@ -72,7 +73,8 @@
       </Section>
 
       <Section
-        hader-icon-type="fas"
+        v-if="posts"
+        header-icon-type="fal"
         header-icon="rss"
         header-text="Latest Blog Posts"
         header-alignment="left"
@@ -83,12 +85,12 @@
         ></PostList>
       </Section>
 
-      <section-header text="Connect" alignment="left">
-        <template #section-header-icon>
-          <font-awesome-icon :icon="['far', 'handshake']"></font-awesome-icon>
-        </template>
-      </section-header>
-      <section>
+      <Section
+        header-icon-type="fal"
+        header-icon="handshake"
+        header-text="Connect"
+        header-alignment="left"
+      >
         <ul class="list-style-none row">
           <li class="col-lg-2 col-md-4 col-6 text-center mb-5">
             <a
@@ -202,7 +204,7 @@
             >
           </li>
         </ul>
-      </section>
+      </Section>
     </main>
   </div>
 </template>
@@ -213,10 +215,10 @@ import RotatingHeader from '@/components/RotatingHeader'
 import Section from '@/components/Section'
 import PostList from '@/components/PostList'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHandshake } from '@fortawesome/pro-regular-svg-icons'
-import { faUserAstronaut, faEnvelope, faHashtag, faCode, faGraduationCap } from '@fortawesome/pro-light-svg-icons'
-// import { faHandshake } from '@fortawesome/pro-duotone-svg-icons'
-import { faConciergeBell, faRss } from '@fortawesome/pro-solid-svg-icons'
+// import {  } from '@fortawesome/pro-regular-svg-icons'
+import { faHandshake, faUserAstronaut, faEnvelope, faHashtag, faCode, faGraduationCap, faConciergeBell, faRss } from '@fortawesome/pro-light-svg-icons'
+// import {  } from '@fortawesome/pro-duotone-svg-icons'
+// import {  } from '@fortawesome/pro-solid-svg-icons'
 import { faLinkedinIn, faStackOverflow, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faGraduationCap, faCode, faUserAstronaut, faConciergeBell, faRss, faHandshake, faEnvelope, faLinkedinIn, faHashtag, faStackOverflow, faCodepen, faGithub)
@@ -230,22 +232,10 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ $content, params, query }) {
     const posts = await $content('articles').limit(4).sortBy('date', 'desc').fetch()
-    // eslint-disable-next-line no-console
-    console.log(posts);
 
     return {
       posts
     }
-  },
-  computed: {
-    iconStyle() {
-      return {
-        // width: '42px',
-        // height: '42px',
-        // padding: '1rem',
-        // fontSize: '2rem',
-      }
-    },
   },
 }
 </script>
@@ -272,7 +262,6 @@ header {
   font-style: italic;
   font-family: $font-family-display;
   border-radius: 0.25rem;
-  // letter-spacing: 1px;
   background-color: $highlight-yellow;
   font-size: 1.25rem;
   padding-left: 0.5rem;
