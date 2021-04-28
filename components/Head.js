@@ -3,7 +3,7 @@ const defaults = {
   description:
     "Front End Software Engineer Cristin O'Connor's portfolio, blog and résumé site",
   image: 'https://www.dropbox.com/s/cqtdsyesom9qs22/default.png?raw=1',
-  url: 'https://cristin.io',
+  url: 'https://nuxt-cristin-io.netlify.app',
 }
 
 const Head = (parameters = {}) => {
