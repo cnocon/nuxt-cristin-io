@@ -1,7 +1,10 @@
 {
-  "name": "nuxt-cristin-io",
-  "version": "1.0.0",
+  "name": "cristin-io",
+  "version": "3.0.0",
+  "description": "Front End Software Engineer Cristin O'Connor's blog and résumé",
   "private": true,
+  "author": "Cristin O'Connor <her@cristin.io>",
+  "license": "MIT",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -48,5 +51,12 @@
     "prettier": "^2.2.1",
     "sass-loader": "^10.1.1",
     "vue-jest": "^3.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cnocon/nuxt-cristin-io"
+  },
+  "bugs": {
+    "url": "https://github.com/cnocon/nuxt-cristin-io/issues"
   }
 }
