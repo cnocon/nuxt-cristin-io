@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="text-center">
-      <h1 class="page-title">This is <b>Cristin</b></h1>
+      <h1 class="page-title">This is <b>Me.</b></h1>
       <p class="page-subtitle">
         I'm a <span>Front End Software Engineer</span>.
       </p>

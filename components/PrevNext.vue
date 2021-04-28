@@ -1,6 +1,9 @@
 <template>
-  <div class="row mt-5 mb-5">
-    <div v-if="prev" class="col-6 btn-col prev">
+  <div class="row pt-5 mt-5 mb-5">
+    <div
+      v-if="prev"
+      :class="next ? 'col-6 btn-col prev' : 'full-width col-6 btn-col prev'"
+    >
       <b-button
         variant="outline-primary"
         :to="{
@@ -63,8 +66,12 @@ export default {
 <style lang="scss" scoped>
 .btn-col {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  justify-content: space-between;
+
+  @include media-breakpoint-up(md) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
   span {
     @include media-breakpoint-down(sm) {
@@ -73,8 +80,11 @@ export default {
   }
 
   &.next {
-    text-align: right;
-    justify-content: flex-end;
+    @include media-breakpoint-up(md) {
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
 
     a.btn {
       padding-left: 1.5rem;
@@ -88,8 +98,13 @@ export default {
   }
 
   &.prev {
-    text-align: left;
-    justify-content: flex-start;
+    @include media-breakpoint-up(md) {
+      align-items: flex-start;
+      flex-direction: column;
+      text-align: left;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
 
     a.btn {
       padding-right: 1.5rem;

@@ -1,7 +1,7 @@
 <template>
   <div class="portfolio-page">
     <Breadcrumbs :crumbs="breadcrumbs" />
-    <h1 class="mt-1">PORTFOLIO</h1>
+    <h1 class="mt-1">Portfolio</h1>
     <Section
       header-text="GitHub Stats Card for React"
       header-icon-type="fab"

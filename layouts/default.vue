@@ -1,7 +1,7 @@
 <template>
   <!-- prettier-ignore -->
   <div class="app-container mb-0">
-    <div class="navbar-container mb-0">
+    <div class="navbar-container mb-5">
       <Navbar />
     </div>
     <div class="container content-container mb-4">
@@ -62,9 +62,10 @@ export default {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   // background-image: $rainbow-gradient-light;
-  // background-size: 100% 4px;
+  // background-size: 100% 2px;
   // background-repeat: no-repeat;
   // background-position: bottom;
+  box-shadow: $box-shadow-md;
 }
 
 .footer-container {

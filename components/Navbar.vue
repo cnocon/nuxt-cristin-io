@@ -13,6 +13,11 @@
       </div>
     </b-navbar-brand>
 
+    <div class="name-and-title-mobile">
+      <div class="name">Cristin O'Connor</div>
+      <div class="title">Front End Engineer</div>
+    </div>
+
     <b-navbar-nav class="ml-0">
       <b-nav>
         <b-nav-item
@@ -66,10 +71,6 @@
         </b-nav-item-dropdown>
       </b-nav>
     </b-navbar-nav>
-    <div class="name-and-title-mobile">
-      <div class="name">Cristin O'Connor</div>
-      <div class="title">Front End Engineer</div>
-    </div>
   </div>
 </template>
 
@@ -108,6 +109,19 @@ export default {
     @include media-breakpoint-down(sm) {
       width: 100%;
     }
+  }
+}
+.name-and-title-mobile,
+.name-and-title {
+  .name {
+    font-size: 1rem;
+    font-family: $font-family-display;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.25;
+  }
+  .title {
+    font-size: 0.875rem;
   }
 }
 .name-and-title-mobile {
@@ -150,8 +164,8 @@ export default {
 
     @include media-breakpoint-up(md) {
       margin: 10px 1.25rem 10px 0;
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
     }
   }
 }

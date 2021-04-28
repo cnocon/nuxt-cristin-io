@@ -1,8 +1,17 @@
 <template>
   <div class="blog-index-page">
     <Breadcrumbs :crumbs="breadcrumbs" />
-
-    <h1 class="mb-5">LATEST POSTS</h1>
+    <h1 class="mb-0">Blog</h1>
+    <SectionHeader
+      v-if="page"
+      :text="'Page ' + page + ' of ' + lastPage"
+      alignment="center"
+      header-classes="mb-5"
+    >
+      <template #section-header-icon>
+        <font-awesome-icon :icon="['fal', 'rss']"></font-awesome-icon>
+      </template>
+    </SectionHeader>
     <PostList
       :posts="pagePosts"
       column-classes="col-12 col-lg-6 mb-5"
@@ -34,6 +43,10 @@
 import PostList from '@/components/PostList'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import PrevNext from '@/components/PrevNext'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faRss } from '@fortawesome/pro-light-svg-icons'
+
+library.add(faRss)
 
 export default {
   components: {
@@ -64,8 +77,10 @@ export default {
     ]
 
     const pagePosts = posts.slice(limit * (page - 1), page * limit)
+    const lastPage = Math.ceil(posts.length / limit)
 
     return {
+      lastPage,
       page,
       postsCount,
       pagePosts,
