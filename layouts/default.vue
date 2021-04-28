@@ -65,7 +65,7 @@ export default {
   // background-size: 100% 2px;
   // background-repeat: no-repeat;
   // background-position: bottom;
-  box-shadow: $box-shadow-md;
+  // box-shadow: $box-shadow-md;
 }
 
 .footer-container {

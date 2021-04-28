@@ -208,6 +208,7 @@
 
 <script>
 /* eslint-disable prettier/prettier */
+import Head from '@/components/Head.js'
 import RotatingHeader from '@/components/RotatingHeader'
 import Section from '@/components/Section'
 import PostList from '@/components/PostList'
@@ -234,6 +235,9 @@ export default {
       posts
     }
   },
+  head() {
+    return Head()
+  }
 }
 </script>
 
@@ -242,17 +246,6 @@ header {
   text-align: center;
 }
 
-$rainbow-gradient-med: linear-gradient(
-    130deg,
-    hsl(259, 83%, 80%) 0%,
-    hsl(259, 83%, 85%) 5%,
-    hsl(197, 100%, 70%) 17%,
-    hsl(197, 100%, 70%) 25%,
-    hsl(175, 92%, 72%) 35%,
-    hsl(49, 100%, 70%) 55%,
-    hsl(49, 100%, 70%) 60%,
-    hsl(0, 80%, 85%) 80%
-);
 .page-title {
   font-weight: 400;
   color: $primary;

@@ -1,7 +1,7 @@
 export default {
   // Enable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  // ssr: true,
-  ssr: false,
+  // ssr: true, // universal
+  ssr: false, // spa
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',

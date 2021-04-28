@@ -1,15 +1,12 @@
 <template>
-  <Section
-    header-text="Résumé & Courses"
-    header-icon-type="fad"
-    header-icon="file-user"
-    header-alignment="center"
-  >
-  </Section>
+  <div class="resume-page">
+    <Breadcrumbs :crumbs="breadcrumbs" />
+    <h1>Résumé & Courses</h1>
+  </div>
 </template>
 
 <script>
-import Section from '@/components/Section'
+// import Section from '@/components/Section'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFileUser } from '@fortawesome/pro-duotone-svg-icons'
 
@@ -17,7 +14,21 @@ library.add(faFileUser)
 
 export default {
   components: {
-    Section,
+    // Section,
+  },
+  data() {
+    return {
+      breadcrumbs: [
+        {
+          text: 'Home',
+          href: '/',
+        },
+        {
+          text: 'Résumé & Courses',
+          href: null,
+        },
+      ],
+    }
   },
 }
 </script>
