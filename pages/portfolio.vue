@@ -1,5 +1,9 @@
 <template>
   <div class="portfolio-page">
+    <Head
+      title="Portfolio | Cristin O'Connor"
+      description="Front End Software Engineering portfolio for Cristin O'Connor"
+    ></Head>
     <Breadcrumbs :crumbs="breadcrumbs" />
     <h1 class="mt-1">Portfolio</h1>
     <Section
@@ -260,6 +264,7 @@
 </template>
 
 <script>
+import Head from '@/components/Head'
 import PortfolioItem from '@/components/PortfolioItem'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Section from '@/components/Section'
@@ -291,6 +296,7 @@ export default {
     Section,
     Breadcrumbs,
     PortfolioItem,
+    Head,
   },
   data() {
     return {
