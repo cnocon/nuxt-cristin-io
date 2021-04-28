@@ -120,14 +120,14 @@ $rainbow-gradient-light: linear-gradient(
 //   $border-yellow 55%,
 //   $border-red 95%
 // );
-// $rainbow-gradient-dark: linear-gradient(
-//   90deg,
-//   $link-red 10.5%,
-//   $link-yellow 39.5%,
-//   $link-green 50%,
-//   $link-blue 67.5%,
-//   $link-purple 82.5%
-// );
+$rainbow-gradient-dark: linear-gradient(
+  90deg,
+  $link-red 10.5%,
+  $link-yellow 39.5%,
+  $link-green 50%,
+  $link-blue 67.5%,
+  $link-purple 82.5%
+);
 // $rainbow-gradient-darker: linear-gradient(
 //   90deg,
   // $link-red-darker 10.5%,

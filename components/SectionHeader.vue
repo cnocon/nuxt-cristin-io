@@ -87,12 +87,16 @@ export default {
   }
 
   b {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-family: $font-family-heading;
     white-space: nowrap;
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 1.5px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 1.1rem;
+    }
   }
 
   div {

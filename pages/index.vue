@@ -1,13 +1,10 @@
 <template>
   <div>
-    <header>
-      <img
-        :src="require(`~/assets/images/square-portrait.png`)"
-        alt="Cristin O'Connor"
-        class="header-image"
-      />
-      <h1 class="title">Cristin O'Connor</h1>
-      <p class="subtitle">Front End Software Engineer</p>
+    <header class="text-center">
+      <h1 class="page-title">This is <b>Cristin</b></h1>
+      <p class="page-subtitle">
+        I'm a <span>Front End Software Engineer</span>.
+      </p>
     </header>
     <main>
       <Section
@@ -81,7 +78,7 @@
       >
         <PostList
           :posts="posts"
-          column-classes="col-sm-12 col-md-6 mb-5"
+          column-classes="col-sm-12 col-md-6 col-xl-4 mb-5"
         ></PostList>
       </Section>
 
@@ -231,7 +228,7 @@ export default {
   },
   // eslint-disable-next-line require-await
   async asyncData({ $content, params, query }) {
-    const posts = await $content('articles').limit(4).sortBy('date', 'desc').fetch()
+    const posts = await $content('articles').limit(6).sortBy('date', 'desc').fetch()
 
     return {
       posts
@@ -240,31 +237,58 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 header {
   text-align: center;
 }
-.header-image {
-  display: none;
-  height: 100px;
-  width: 100px;
-  box-shadow: $rainbow-box-shadow-dark;
-  border-radius: 50%;
-}
-.title {
-  font-weight: 500;
+
+$rainbow-gradient-med: linear-gradient(
+    130deg,
+    hsl(259, 83%, 80%) 0%,
+    hsl(259, 83%, 85%) 5%,
+    hsl(197, 100%, 70%) 17%,
+    hsl(197, 100%, 70%) 25%,
+    hsl(175, 92%, 72%) 35%,
+    hsl(49, 100%, 70%) 55%,
+    hsl(49, 100%, 70%) 60%,
+    hsl(0, 80%, 85%) 80%
+);
+.page-title {
+  font-weight: 400;
+  color: $primary;
   text-transform: uppercase;
   font-family: $font-family-display;
   margin-bottom: 0.5rem;
+
+  b {
+    font-weight: 900;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: $rainbow-gradient-med;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
-.subtitle {
+.page-subtitle {
+  color: $primary;
   display: inline-block;
-  font-style: italic;
+  font-weight: 300;
   font-family: $font-family-display;
-  border-radius: 0.25rem;
-  background-color: $highlight-yellow;
   font-size: 1.25rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  font-style: italic;
+
+  span {
+    display: inline-block;
+    // border-radius: 0.25rem;
+    // background-color: rgba($highlight-yellow, 0.625);
+    // padding-left: 0.5rem;
+    // padding-right: 0.5rem;
+  }
+
+  b {
+    display: inline-block;
+    font-weight: 300;
+  }
 }
 </style>

@@ -80,7 +80,7 @@ export default {
   text-align: center;
 
   @include media-breakpoint-down(sm) {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.5rem;
   }
 

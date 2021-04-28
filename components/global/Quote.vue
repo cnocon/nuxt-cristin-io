@@ -59,7 +59,7 @@ export default {
       p {
         font-family: $font-family-sans-serif;
         font-weight: 500;
-        font-size: 1.25rem;
+        font-size: 1.15rem;
       }
     }
   }
