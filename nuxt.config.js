@@ -1,22 +1,27 @@
 export default {
   // Enable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // ssr: true, // universal
-  ssr: false, // spa
+  // ssr: false // spa
+  ssr: true,
 
   // Target: https://go.nuxtjs.dev/config-target
   // target: 'server',
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt-cristin-io',
+    title: `Cristin O'Connor | Front End Software Engineer`,
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: `Front End Software Engineer Cristin O'Connor's portfolio, blog and résumé site`,
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

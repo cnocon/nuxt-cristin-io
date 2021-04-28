@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Head />
     <header class="text-center">
       <h1 class="page-title">This is <b>Me.</b></h1>
       <p class="page-subtitle">
@@ -208,7 +209,7 @@
 
 <script>
 /* eslint-disable prettier/prettier */
-import Head from '@/components/Head.js'
+import Head from '@/components/Head'
 import RotatingHeader from '@/components/RotatingHeader'
 import Section from '@/components/Section'
 import PostList from '@/components/PostList'
@@ -226,6 +227,7 @@ export default {
     RotatingHeader,
     Section,
     PostList,
+    Head,
   },
   // eslint-disable-next-line require-await
   async asyncData({ $content, params, query }) {
@@ -235,9 +237,6 @@ export default {
       posts
     }
   },
-  head() {
-    return Head()
-  }
 }
 </script>
 
