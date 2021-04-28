@@ -2,8 +2,8 @@ const defaults = {
   title: "Cristin O'Connor | Front End Software Engineer",
   description:
     "Front End Software Engineer Cristin O'Connor's portfolio, blog and résumé site",
-  image: 'https://www.dropbox.com/s/cqtdsyesom9qs22/default.png?raw=1',
-  url: 'https://nuxt-cristin-io.netlify.app',
+  image: 'https://nuxt-cristin-io.netlify.app/person-on-laptop.jpeg',
+  url: 'https://cristin.io',
 }
 
 const Head = (parameters = {}) => {
